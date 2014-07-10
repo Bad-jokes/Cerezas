@@ -3,26 +3,20 @@ package com.Resources;
 import org.andengine.opengl.texture.atlas.bitmap.BuildableBitmapTextureAtlas;
 import org.andengine.opengl.texture.region.ITextureRegion;
 
-public abstract class CherryResources extends ResourcesBase{
+public abstract class CherryResources extends ResourcesBase
+{
 
 	//--------------------
 	//ATTRIBUTES
 	//--------------------
-	protected BuildableBitmapTextureAtlas cherrySprite;
+	protected BuildableBitmapTextureAtlas cherrySprite; 
 	protected ITextureRegion cherryRegion;
-	
-
-	//-------------------------------
-	//SETS AND GETS
-	//-------------------------------
-	
-	public ITextureRegion getCherryRegion() {
+		
+	//--------------------
+	//CLASS LOGIC
+	//-------------------
+	public ITextureRegion getDisfraz()
+	{
 		return cherryRegion;
 	}
-
-	public BuildableBitmapTextureAtlas getCherrySprite() {
-		return cherrySprite;
-	}	
-	
-	
 }

@@ -14,6 +14,4 @@ public abstract class ResourcesBase {
 		
 		public abstract void ReLoadResources();
 
-		
-
 }

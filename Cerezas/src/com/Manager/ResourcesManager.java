@@ -65,17 +65,17 @@ public class ResourcesManager {
 		
 		public void LoadScene(BaseScene x)
 		 {
-			x.getResourcesM();
+			x.getResourcesM().LoadResources();
 		 }
 		 
 		 public void UnLoadScene(BaseScene x)
 		 {
-			 x.getResourcesM();
+			 x.getResourcesM().UnLoadResources();
 		 }
 		 
 		 public void ReloadScene(BaseScene x)
 		 {
-			 x.getResourcesM();
+			 x.getResourcesM().ReLoadResources();
 		 }
 
 }

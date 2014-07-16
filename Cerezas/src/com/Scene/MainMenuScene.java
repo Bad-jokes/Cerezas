@@ -12,13 +12,14 @@ import org.andengine.opengl.util.GLState;
 import com.Resources.MenuResources;
 import com.Resources.ResourcesBase;
 import com.Scene.BaseScene;
+import com.Manager.SceneManager;
 import com.Manager.SceneManager.SceneType;
 
 public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener 
 {
 	
 		//Atributos--------------------
-		private MenuResources x;
+		private MenuResources Resources;
 		
 		private MenuScene menuChildScene;
 		private final int MENU_PLAY = 0;
@@ -27,7 +28,7 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 		//CLASS LOGIC-------------------
 		
 		public MainMenuScene(MenuResources y){
-			this.x=y;
+			this.Resources=y;
 		    
 			this.createScene();
 		}
@@ -39,7 +40,7 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 		}
 		
 		private void createbackground(){
-			attachChild(new Sprite(400,240,x.getBackground(),vbom)
+			attachChild(new Sprite(400,240,Resources.getBackground(),vbom)
 			{
 				@Override
 				protected void preDraw(GLState pGLState, Camera pCamera){
@@ -53,8 +54,8 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 			menuChildScene = new MenuScene(camera);
 		    menuChildScene.setPosition(400, 240);
 		    
-		    final IMenuItem playMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_PLAY,x.getPlay(), vbom), 1.2f, 1);
-		    final IMenuItem optionsMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_OPTIONS,x.getOptions(), vbom), 1.2f, 1);
+		    final IMenuItem playMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_PLAY,Resources.getPlay(), vbom), 1.2f, 1);
+		    final IMenuItem optionsMenuItem = new ScaleMenuItemDecorator(new SpriteMenuItem(MENU_OPTIONS,Resources.getOptions(), vbom), 1.2f, 1);
 		    
 		    
 		    menuChildScene.addMenuItem(playMenuItem);
@@ -90,6 +91,7 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 		    switch(pMenuItem.getID())
 		    {
 		        case MENU_PLAY:
+		        	SceneManager.getInstance().loadGameScene(engine);
 		            return true;
 		        case MENU_OPTIONS:
 		            return true;
@@ -107,7 +109,7 @@ public class MainMenuScene extends BaseScene implements IOnMenuItemClickListener
 		@Override
 		public ResourcesBase getResourcesM() 
 		{
-			return x;
+			return Resources;
 		}
 
 }

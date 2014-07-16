@@ -23,6 +23,8 @@ public abstract class Cherry extends Sprite {
 	//-------------------------------
 	
 	protected Body body;
+	protected float peso;
+	protected int id;
 	
 	//-------------------------------
 	//CONSTRUCTOR
@@ -34,7 +36,7 @@ public abstract class Cherry extends Sprite {
 	}
 	
 	private void createPhysics(final Camera camera, PhysicsWorld physicsWorld){
-		this.body = PhysicsFactory.createBoxBody(physicsWorld, this, BodyType.DynamicBody, PhysicsFactory.createFixtureDef(0,0,0));
+		this.body = PhysicsFactory.createBoxBody(physicsWorld, this, BodyType.DynamicBody, PhysicsFactory.createFixtureDef(this.peso,0,0));
 		
 		physicsWorld.registerPhysicsConnector(new PhysicsConnector(this, body,true,true){
 			@Override
@@ -44,6 +46,18 @@ public abstract class Cherry extends Sprite {
 				camera.onUpdate(0.1f);
 	        }
         });			
+	}
+
+	public float getPeso() {
+		return peso;
+	}
+
+	public void setPeso(float peso) {
+		this.peso = peso;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 }
